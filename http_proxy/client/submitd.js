@@ -1,4 +1,5 @@
 const { chromium } = require('playwright');
+const url = "https://qqwllkmn.qzz.io/autosubmit/?reqmode=d";
 // 全局忽略任何异常避免退出
 process.on('uncaughtException', err => {
   console.log("IGNORED:", err.message);
@@ -7,7 +8,7 @@ process.on('unhandledRejection', err => {
   console.log("IGNORED:", err.message);
 });
 
-(async () => {
+async function BrowserRequest(url) {
   const browser = await chromium.launch({
     headless: true,
     args: ['--no-sandbox']
@@ -35,7 +36,7 @@ process.on('unhandledRejection', err => {
 
   // 1) 强制等待页面加载完成
   try {
-    await page.goto("https://qqwllkmn.qzz.io/autosubmit/?reqmode=d", {
+    await page.goto(url, {
       timeout: 0,
       waitUntil: "load"   // 必须等到 load
     });
@@ -57,4 +58,17 @@ process.on('unhandledRejection', err => {
   await page.waitForTimeout(10000);
 
   await browser.close();
-})();
+}
+
+async function start() {
+  let count = 1;
+  while (count <= 2) {
+    console.log("\n\n\n");
+    console.log("================================");
+    console.log("Direct Request Count:", count);
+    await BrowserRequest(url);
+    count++;
+  }
+}
+
+start();

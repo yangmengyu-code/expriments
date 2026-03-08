@@ -70,8 +70,13 @@ async function BrowserRequest(url, ip) {
 }
 
 async function start() {
+  let count = 1;
   for (const ip of list) {
+    console.log("\n\n\n");
+    console.log("================================");
+    console.log("Proxy IP:", ip, "Proxy Request Count:", count);
     await BrowserRequest(url, ip);
+    count++;
   }
 }
 

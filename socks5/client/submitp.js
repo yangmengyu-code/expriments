@@ -14,7 +14,7 @@ process.on('unhandledRejection', err => {
 });
 
 async function BrowserRequest(url, ip) {
-  const ProxyUrl = `socks5:${username}:${password}//@${ip}:${port}`;
+  const ProxyUrl = `socks5://${username}:${password}@${ip}:${port}`;
   const newProxyUrl = await ProxyChain.anonymizeProxy(ProxyUrl);
   const browser = await chromium.launch({
     headless: true,

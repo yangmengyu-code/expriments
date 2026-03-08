@@ -3,10 +3,12 @@ ufw default deny incoming
 ufw default allow outgoing
 ufw allow 22/tcp
 ufw allow 1081/tcp
+ufw allow 1024:65535/udp
 ufw --force enable
 
 rm /root/expriments/http_proxy/0.9.5.tar.gz*
 rm -rf /root/expriments/http_proxy/3proxy-0.9.5/
+cd /root/expriments/http_proxy
 wget https://github.com/3proxy/3proxy/archive/refs/tags/0.9.5.tar.gz
 tar -xvzf 0.9.5.tar.gz
 cd 3proxy-0.9.5/

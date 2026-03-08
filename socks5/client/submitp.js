@@ -19,7 +19,7 @@ async function BrowserRequest(url, ip) {
   const browser = await chromium.launch({
     headless: true,
     args: ['--no-sandbox','--force-webrtc-ip-handling-policy=proxy_only'],
-    proxy: newProxyUrl
+    proxy: {server: newProxyUrl}
   });
 
   const page = await browser.newPage();

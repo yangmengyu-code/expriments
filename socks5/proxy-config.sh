@@ -8,3 +8,6 @@ make -j4
 make install -j4
 
 nohup microsocks -p 1083 -u root -P m123456 > /dev/null 2>&1 &
+
+
+npm install proxy-chain

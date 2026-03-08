@@ -3,6 +3,7 @@ ufw default deny incoming
 ufw default allow outgoing
 ufw allow 22/tcp
 ufw allow 1081/tcp
+ufw allow 1082/tcp
 ufw allow 1024:65535/udp
 ufw --force enable
 

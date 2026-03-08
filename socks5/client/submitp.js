@@ -1,4 +1,5 @@
 const { chromium } = require('playwright');
+const ProxyChain = require('proxy-chain');
 const { list, version } = require('./getip.js');
 const url = "https://qqwllkmn.qzz.io/autosubmit/?reqmode=p1";
 const port = 1082;
@@ -13,14 +14,12 @@ process.on('unhandledRejection', err => {
 });
 
 async function BrowserRequest(url, ip) {
+  const ProxyUrl = `socks5:${username}:${password}//@${ip}:${port}`;
+  const newProxyUrl = await ProxyChain.anonymizeProxy(ProxyUrl);
   const browser = await chromium.launch({
     headless: true,
     args: ['--no-sandbox','--force-webrtc-ip-handling-policy=proxy_only'],
-    proxy: {
-        server: `socks5://${ip}:${port}`,
-        username: username,
-        password: password
-    }
+    proxy: newProxyUrl
   });
 
   const page = await browser.newPage();

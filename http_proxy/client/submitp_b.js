@@ -74,7 +74,7 @@ async function start() {
   for (const ip of list) {
     console.log("\n\n\n");
     console.log("================================");
-    console.log("Proxy IP:", ip, "Proxy Request Count:", count);
+    console.log("Proxy IP:", ip, "Baseline Proxy Request Count:", count);
     await BrowserRequest(url, ip);
     console.log("================================");
     count++;

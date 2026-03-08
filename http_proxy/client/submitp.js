@@ -69,6 +69,10 @@ async function BrowserRequest(url, ip) {
   await browser.close();
 }
 
-for (const ip of list) {
-  await BrowserRequest(url, ip);
+async function start() {
+  for (const ip of list) {
+    await BrowserRequest(url, ip);
+  }
 }
+
+start();

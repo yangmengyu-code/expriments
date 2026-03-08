@@ -1,6 +1,6 @@
 const { chromium } = require('playwright');
 const { list, version } = require('./getip.js');
-const url = "https://qqwllkmn.qzz.io/autosubmit/?reqmode=p1";
+const url = "https://qqwllkmn.qzz.io/baseline/autosubmit/?reqmode=p1";
 const port = 1081;
 const username = "root";
 const password = "m123456";

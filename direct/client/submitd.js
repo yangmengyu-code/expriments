@@ -1,9 +1,5 @@
 const { chromium } = require('playwright');
-const { list, version } = require('./getip.js');
-const url = "https://qqwllkmn.qzz.io/autosubmit/?reqmode=p1";
-const port = 1081;
-const username = "root";
-const password = "m123456";
+const url = "https://qqwllkmn.qzz.io/autosubmit/?reqmode=d";
 // 全局忽略任何异常避免退出
 process.on('uncaughtException', err => {
   console.log("IGNORED:", err.message);
@@ -12,15 +8,10 @@ process.on('unhandledRejection', err => {
   console.log("IGNORED:", err.message);
 });
 
-async function BrowserRequest(url, ip) {
+async function BrowserRequest(url) {
   const browser = await chromium.launch({
     headless: true,
-    args: ['--no-sandbox'],
-    proxy: {
-        server: `http://${ip}:${port}`,
-        username: username,
-        password: password
-    }
+    args: ['--no-sandbox']
   });
 
   const page = await browser.newPage();
@@ -71,11 +62,11 @@ async function BrowserRequest(url, ip) {
 
 async function start() {
   let count = 1;
-  for (const ip of list) {
+  while (count <= 2) {
     console.log("\n\n\n");
     console.log("================================");
-    console.log("Proxy IP:", ip, "Proxy Request Count:", count);
-    await BrowserRequest(url, ip);
+    console.log("Direct Request Count:", count);
+    await BrowserRequest(url);
     console.log("================================");
     count++;
   }

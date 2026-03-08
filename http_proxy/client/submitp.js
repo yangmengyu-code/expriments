@@ -1,7 +1,6 @@
 const { chromium } = require('playwright');
 const { list, version } = require('./getip.js');
-const ip = list[0];
-console.log("IP:", ip);
+const url = "https://qqwllkmn.qzz.io/autosubmit/?reqmode=p1";
 const port = 1081;
 const username = "root";
 const password = "m123456";
@@ -13,7 +12,7 @@ process.on('unhandledRejection', err => {
   console.log("IGNORED:", err.message);
 });
 
-(async () => {
+async function BrowserRequest(url, ip) {
   const browser = await chromium.launch({
     headless: true,
     args: ['--no-sandbox'],
@@ -46,7 +45,7 @@ process.on('unhandledRejection', err => {
 
   // 1) 强制等待页面加载完成
   try {
-    await page.goto("https://qqwllkmn.qzz.io/test", {
+    await page.goto(url, {
       timeout: 0,
       waitUntil: "load"   // 必须等到 load
     });
@@ -68,4 +67,8 @@ process.on('unhandledRejection', err => {
   await page.waitForTimeout(10000);
 
   await browser.close();
-})();
+}
+
+for (const ip of list) {
+  await BrowserRequest(url, ip);
+}

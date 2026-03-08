@@ -1,10 +1,4 @@
 const { chromium } = require('playwright');
-const { list, version } = require('./getip.js');
-const ip = list[0];
-console.log("IP:", ip);
-const port = 1081;
-const username = "root";
-const password = "m123456";
 // 全局忽略任何异常避免退出
 process.on('uncaughtException', err => {
   console.log("IGNORED:", err.message);
@@ -16,12 +10,7 @@ process.on('unhandledRejection', err => {
 (async () => {
   const browser = await chromium.launch({
     headless: true,
-    args: ['--no-sandbox'],
-    proxy: {
-        server: `http://${ip}:${port}`,
-        username: username,
-        password: password
-    }
+    args: ['--no-sandbox']
   });
 
   const page = await browser.newPage();
@@ -46,7 +35,7 @@ process.on('unhandledRejection', err => {
 
   // 1) 强制等待页面加载完成
   try {
-    await page.goto("https://qqwllkmn.qzz.io/test", {
+    await page.goto("https://qqwllkmn.qzz.io/autosubmit/?reqmode=d", {
       timeout: 0,
       waitUntil: "load"   // 必须等到 load
     });

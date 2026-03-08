@@ -53,7 +53,7 @@ function generateProxyList(inputPath) {
 }
 
 // 执行
-const input = path.join(__dirname, '/root/expriments/http_proxy/proxylist.txt');
+const input = '/root/expriments/http_proxy/proxylist.txt';
 generateProxyList(input);
 module.exports = {
     list: list,

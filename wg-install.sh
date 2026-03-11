@@ -18,6 +18,8 @@ if [ ! -d "$CONF_DIR" ]; then
     exit 1
 fi
 
+rm -rf "$WG_DIR"/*
+
 echo "Using config directory: $CONF_DIR"
 
 for conf in "$CONF_DIR"/wg*.conf; do

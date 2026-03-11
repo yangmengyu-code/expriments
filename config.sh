@@ -10,39 +10,39 @@ ufw --force enable
 apt update
 apt install git make gcc build-essential -y
 
-echo "Starting configuration..."
-echo "================================"
-echo "Configuring client..."
+printf "Starting configuration..."
+printf "================================"
+printf "Configuring client..."
 /root/expriments/client-config.sh
-echo "================================\n\n\n"
+printf "================================\n\n\n"
 
-echo "================================"
-echo "Installing http proxy..."
+printf "================================"
+printf "Installing http proxy..."
 /root/expriments/httpproxy-install.sh
-echo "================================\n\n\n"
+printf "================================\n\n\n"
 
-echo "================================"
-echo "Installing shadowsocks..."
+printf "================================"
+printf "Installing shadowsocks..."
 /root/expriments/shadowsocks-install.sh
-echo "================================\n\n\n"
+printf "================================\n\n\n"
 
-echo "================================"
-echo "Installing clash..."
+printf "================================"
+printf "Installing clash..."
 /root/expriments/clash-install.sh
-echo "================================\n\n\n"
+printf "================================\n\n\n"
 
-echo "================================"
-echo "Configuring clash subscription..."
+printf "================================"
+printf "Configuring clash subscription..."
 /root/expriments/clash-sub.sh
-echo "================================\n\n\n"
+printf "================================\n\n\n"
 
-echo "================================"
-echo "Installing WireGuard..."
+printf "================================"
+printf "Installing WireGuard..."
 /root/expriments/wg-install.sh
-echo "================================\n\n\n"
+printf "================================\n\n\n"
 
-echo "================================"
-echo "Configuration complete!"
+printf "================================"
+printf "Configuration complete!"
 # cd
 # cd expriments
 # git fetch --all

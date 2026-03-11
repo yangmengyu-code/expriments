@@ -18,7 +18,6 @@ if [ ! -d "$CONF_DIR" ]; then
     exit 1
 fi
 
-rm -rf "$WG_DIR"/*
 
 echo "Using config directory: $CONF_DIR"
 
@@ -27,8 +26,9 @@ for conf in "$CONF_DIR"/wg*.conf; do
         filename=$(basename "$conf")
         name=${filename%.*}
         echo "Applying $conf"
-        cp "$conf" "$WG_DIR"
         wg-quick down "$name" 2>/dev/null
+        rm -rf "$WG_DIR"/*
+        cp "$conf" "$WG_DIR"
         wg-quick up "$name"
         echo "Applied $conf"
     fi

@@ -8,7 +8,7 @@ ufw allow 8388/udp
 ufw allow 51820/udp
 ufw --force enable
 apt update
-apt install git make gcc build-essential -y
+apt install git make gcc build-essential jq -y
 
 printf "Starting configuration...\n"
 printf "================================\n"
@@ -45,11 +45,11 @@ printf "================================\n"
 printf "Configuration complete!\n"
 
 
-# cd
-# cd expriments
-# git fetch --all
-# git reset --hard origin/main
-# find . -name "*.sh" -exec chmod +x {} +
+cd
+cd expriments
+git fetch --all
+git reset --hard origin/main
+find . -name "*.sh" -exec chmod +x {} +
 
 # Direct
 # /root/expriments/direct/config.sh

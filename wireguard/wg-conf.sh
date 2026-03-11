@@ -24,7 +24,3 @@ ip rule
 ip route
 ip route show table 100
 ip route show table 100
-
-ip route flush table 100
-ip route add default dev enp1s0 table 100
-ip route flush cache

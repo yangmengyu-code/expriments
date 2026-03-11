@@ -60,19 +60,16 @@ async function BrowserRequest(url) {
   await browser.close();
 }
 
-async function start(trun) {
+async function start() {
   let count = 1;
-  while (count <= 2) {
+  while (count <= 1) {
     console.log("\n\n\n");
     console.log("================================");
-    console.log("Turn:", trun, ";", "Direct Request Count:", count);
+    console.log("VPN Request Count:", count);
     await BrowserRequest(url);
     console.log("================================");
     count++;
   }
 }
-let turn = 1;
-while (turn <= 2) {
-  start(turn);
-  turn++;
-}
+
+start();

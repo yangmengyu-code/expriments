@@ -7,7 +7,7 @@ process.on('uncaughtException', err => {
 process.on('unhandledRejection', err => {
   console.log("IGNORED:", err.message);
 });
-const Timeout = 5000;
+
 async function BrowserRequest(url) {
   const browser = await chromium.launch({
     headless: true,
@@ -45,7 +45,7 @@ async function BrowserRequest(url) {
   }
 
   // 2) 等待页面内 JS 有机会执行
-  await page.waitForTimeout(Timeout);
+  await page.waitForTimeout(10000);
 
   // 3) 执行你的脚本
   try {
@@ -55,24 +55,21 @@ async function BrowserRequest(url) {
   } catch {}
 
   // 4) 再等几秒确保 console 都输出
-  await page.waitForTimeout(Timeout);
+  await page.waitForTimeout(10000);
 
   await browser.close();
 }
 
-async function start(trun) {
+async function start() {
   let count = 1;
-  while (count <= 2) {
+  while (count <= 1) {
     console.log("\n\n\n");
     console.log("================================");
-    console.log("Turn:", trun, ";", "Direct Request Count:", count);
+    console.log("Baseline VPN Request Count:", count);
     await BrowserRequest(url);
     console.log("================================");
     count++;
   }
 }
-let turn = 1;
-while (turn <= 2) {
-  start(turn);
-  turn++;
-}
+
+start();

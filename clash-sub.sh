@@ -1,3 +1,4 @@
+source /root/clashctl/scripts/cmd/clashctl.sh
 BASE_DIR="/root/expriments/clash/confs"
 NIC="enp1s0"
 

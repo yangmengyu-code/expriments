@@ -8,13 +8,14 @@ cp ssserver /usr/local/bin/
 chmod +x /usr/local/bin/ssserver
 
 cd
+useradd -r -s /usr/sbin/nologin shadowsocks
 rm -rf /etc/shadowsocks-rust
 mkdir -p /etc/shadowsocks-rust
 cp /root/expriments/ss_proxy/ss-conf/config.json /etc/shadowsocks-rust/config.json
 cp /root/expriments/ss_proxy/ss-conf/shadowsocks-rust.service /etc/systemd/system/shadowsocks-rust.service
 systemctl daemon-reload
 systemctl enable shadowsocks-rust.service
-systemctl start shadowsocks-rust.service
+systemctl restart shadowsocks-rust.service
 systemctl --no-pager status shadowsocks-rust.service
 SS_USER=shadowsocks
 SS_UID=$(id -u "$SS_USER")

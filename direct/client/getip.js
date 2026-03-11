@@ -1,61 +1,21 @@
-const fs = require('fs');
-const os = require('os');
-const path = require('path');
-
-let list = [];
-/**
- * 获取本机所有 IPv4 地址
- */
-function getLocalIPs() {
-    const interfaces = os.networkInterfaces();
-    const localIPs = new Set(['127.0.0.1', 'localhost', '::1']);
-
-    for (const devName in interfaces) {
-        interfaces[devName].forEach(details => {
-            if (details.family === 'IPv4') {
-                localIPs.add(details.address);
-            }
-        });
-    }
-    return localIPs;
+const os = require("os");
+const NIC = "enp1s0";
+const nets = os.networkInterfaces();
+const iface = nets[NIC];
+if (!iface) {
+    console.error(`Network interface ${NIC} not found`);
+    process.exit(1);
 }
 
-function generateProxyList(inputPath) {
-    try {
-        const localIPs = getLocalIPs();
-        
-        // 1. 读取文件并按行分割（兼容 Windows \r\n 和 Linux \n）
-        const data = fs.readFileSync(inputPath, 'utf8');
-        const lines = data.split(/\r?\n/);
+const ipv4 = iface.find(i => i.family === "IPv4")?.address;
 
-        // 2. 过滤掉：空行、纯空格行、以及包含本机 IP 的行
-        const filteredList = lines
-            .map(line => line.trim())
-            .filter(line => {
-                if (!line) return false; // 排除空行
-                
-                // 检查该行是否包含任何一个本机 IP
-                // 考虑到格式可能是 "IP:Port"，这里用 includes 或正则判断
-                const isLocal = Array.from(localIPs).some(ip => line.includes(ip));
-                return !isLocal;
-            });
-
-        // 3. 将过滤后的列表追加到全局 list 中
-        list.push(...filteredList);
-        console.log(`✅ 处理完成！`);
-        console.log(`原数据: ${lines.length} 行`);
-        console.log(`IPs: ${lines.join(', ')}`);
-        console.log(`过滤后: ${list.length} 行`);
-        console.log(`IPs: ${list.join(', ')}`);
-    } catch (err) {
-        console.error('❌ 处理出错:', err.message);
-    }
+if (!ipv4) {
+    console.error(`IPv4 not found on ${NIC}`);
+    process.exit(1);
 }
 
-// 执行
-const input = '/root/expriments/http_proxy/proxylist.txt';
-generateProxyList(input);
+console.log("IPv4 address on enp1s0:",ipv4);
+
 module.exports = {
-    list: list,
-    version: '1.0.0'
+    ip: ipv4,
 };

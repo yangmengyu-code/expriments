@@ -11,7 +11,7 @@ process.on('uncaughtException', err => {
 process.on('unhandledRejection', err => {
   console.log("IGNORED:", err.message);
 });
-
+const Timeout = 5000;
 async function BrowserRequest(url, ip) {
   const browser = await chromium.launch({
     headless: true,
@@ -54,7 +54,7 @@ async function BrowserRequest(url, ip) {
   }
 
   // 2) 等待页面内 JS 有机会执行
-  await page.waitForTimeout(10000);
+  await page.waitForTimeout(Timeout);
 
   // 3) 执行你的脚本
   try {
@@ -64,21 +64,24 @@ async function BrowserRequest(url, ip) {
   } catch {}
 
   // 4) 再等几秒确保 console 都输出
-  await page.waitForTimeout(10000);
+  await page.waitForTimeout(Timeout);
 
   await browser.close();
 }
 
-async function start() {
+async function start(trun) {
   let count = 1;
-  for (const ip of list) {
+  while (count <= 2) {
     console.log("\n\n\n");
     console.log("================================");
-    console.log("Proxy IP:", ip, "Proxy Request Count:", count);
-    await BrowserRequest(url, ip);
+    console.log("Turn:", trun, ";", "Direct Request Count:", count);
+    await BrowserRequest(url);
     console.log("================================");
     count++;
   }
 }
-
-start();
+let turn = 1;
+while (turn <= 2) {
+  start(turn);
+  turn++;
+}

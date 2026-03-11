@@ -1,5 +1,5 @@
 const { chromium } = require('playwright');
-const { list, version } = require('./getip.js');
+const { ip } = require('./getip.js');
 const url = "https://qqwllkmn.qzz.io/autosubmit/?reqmode=p1";
 const port = 1081;
 const username = "root";

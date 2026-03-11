@@ -1,0 +1,16 @@
+[Unit]
+Description=Shadowsocks-rust Service
+After=network.target
+
+[Service]
+Type=simple
+User=shadowsocks
+Group=shadowsocks
+# 指向你的 ssserver 二进制路径和配置文件路径
+ExecStart=/usr/local/bin/ssserver -c /etc/shadowsocks-rust/config.json
+Restart=on-failure
+RestartSec=5s
+LimitNOFILE=512000
+
+[Install]
+WantedBy=multi-user.target

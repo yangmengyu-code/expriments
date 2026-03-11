@@ -9,10 +9,6 @@ ufw allow 51820/udp
 ufw --force enable
 apt update
 apt install git make gcc build-essential -y
-cd
-rm -rf expriments
-git clone https://github.com/yangmengyu-code/expriments.git
-find . -name "*.sh" -exec chmod +x {} +
 
 echo "Starting configuration..."
 echo "================================"

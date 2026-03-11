@@ -27,18 +27,14 @@ if [[ -z "$SELF_PEER" ]]; then
     echo "Public IP not found in peerinfo.json"
     exit 1
 fi
-# 清理路由表和规则
-ip route flush table 100
-ip rule flush table 100
-ip rule del from 10.0.0.0/24 table main priority 100 || true
 
 # 配置临时路由表 table 100
 ip rule add from 10.0.0.0/24 table main priority 100 || true
 for tgt in "${TARGETS[@]}"; do
     ip rule add to "$tgt" table 100 priority 200 || true
 done
-ip route flush table 100
-ip route add default dev wg0 table 100
+ip route flush table 100 || true
+ip route add default dev wg0 table 100 || true
 ip route flush cache
 
 # 遍历 peers
@@ -57,8 +53,8 @@ for ((i=0;i<NUM_PEERS;i++)); do
 done
 
 # 清理路由表和规则
-ip route flush table 100
-ip rule flush table 100
+ip route flush table 100 || true
+ip rule flush table 100 || true
 ip rule del from 10.0.0.0/24 table main priority 100 || true
 
 echo "Done."

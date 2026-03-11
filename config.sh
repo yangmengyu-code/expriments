@@ -44,6 +44,8 @@ printf "================================\n\n\n"
 printf "================================\n"
 printf "Configuration complete!\n"
 
+./direct-run.sh
+./wg-run.sh
 
 cd
 cd expriments

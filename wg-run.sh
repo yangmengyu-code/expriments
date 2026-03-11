@@ -27,6 +27,10 @@ if [[ -z "$SELF_PEER" ]]; then
     echo "Public IP not found in peerinfo.json"
     exit 1
 fi
+# 清理路由表和规则
+ip route flush table 100
+ip rule flush table 100
+ip rule del from 10.0.0.0/24 table main priority 100 || true
 
 # 配置临时路由表 table 100
 ip rule add from 10.0.0.0/24 table main priority 100 || true

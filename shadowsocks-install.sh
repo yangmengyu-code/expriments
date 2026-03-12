@@ -23,5 +23,6 @@ systemctl --no-pager status shadowsocks-rust.service
 # iptables -t mangle -F OUTPUT
 # id -u shadowsocks
 # iptables -t mangle -A OUTPUT -p tcp -m owner --uid-owner shadowsocks -j MARK --set-mark 1
-# iptables -t mangle -A OUTPUT -p udp -m owner --uid-owner shadowsocks -j MARK --set-mark 1
-# ip rule add fwmark 1 lookup main priority 20 || true
+# iptables -t mangle -A PREROUTING -m owner --uid-owner shadowsocks -j MARK --set-mark 0x1
+# ip rule add fwmark 0x1 lookup main || true
+# ip rule add fwmark 1 lookup main priority 10 || true

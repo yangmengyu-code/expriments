@@ -30,7 +30,8 @@ rules:
     - 'IP-CIDR,45.77.13.64/32,ss'
     - 'IP-CIDR,64.226.71.55/32,ss'
     - 'IP-CIDR,137.220.42.146/32,ss'
-    - 'PROCESS-NAME,ssserver,DIRECT'
+    - 'PROCESS-NAME,/usr/local/bin/ssserver,DIRECT'
+    - 'PROCESS-PATH,/root/clashctl/bin/mihomo,DIRECT'
     - 'MATCH,DIRECT'
 `;
 

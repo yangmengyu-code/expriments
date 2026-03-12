@@ -15,6 +15,7 @@ clashoff
 clashtun off
 ip route flush table 100
 ip rule flush table 100
+iptables -t mangle -F
 
 systemctl --no-pager status 3proxy.service
 systemctl --no-pager status shadowsocks-rust.service

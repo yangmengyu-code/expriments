@@ -1,6 +1,5 @@
 find . -name "*.sh" -exec chmod +x {} +
 
-cp ./ips.txt ./http_proxy/client/ips.txt
 cp ./ips.txt ./gen-confs/clash
 cp ./ips.txt ./gen-confs/wg
 rm -rf ./gen-confs/clash/conf-*

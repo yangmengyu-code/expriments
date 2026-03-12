@@ -1,3 +1,4 @@
+source /root/clashctl/scripts/cmd/clashctl.sh
 clashoff
 clashtun off
 cd

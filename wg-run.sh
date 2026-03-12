@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-
+source /root/clashctl/scripts/cmd/clashctl.sh
 clashoff
 clashtun off
 

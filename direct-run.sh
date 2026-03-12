@@ -1,3 +1,5 @@
+clashoff
+clashtun off
 cd
 node /root/expriments/direct/client/submitd.js
 node /root/expriments/direct/client/submitd_b.js

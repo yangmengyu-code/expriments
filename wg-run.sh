@@ -1,6 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
+clashoff
+clashtun off
+
 NIC="enp1s0"
 PEERINFO_FILE="/root/expriments/wireguard/confs/peerinfo.json"
 TARGETS=("45.32.29.7" "45.77.13.64" "64.226.71.55" "137.220.42.146")

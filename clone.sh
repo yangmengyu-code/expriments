@@ -11,8 +11,15 @@ git fetch --all
 git reset --hard origin/main
 find . -name "*.sh" -exec chmod +x {} +
 
+clashoff
+clashtun off
+ip route flush table 100
+ip rule flush table 100
+
 systemctl --no-pager status 3proxy.service
 systemctl --no-pager status shadowsocks-rust.service
+clashproxy
+clashtun
 clashsub ls
 wg
 iptables -t mangle -L -n -v

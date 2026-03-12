@@ -21,10 +21,10 @@ printf "Configuring client...\n"
 /root/expriments/client-config.sh
 printf "================================\n\n\n"
 
-printf "================================\n"
-printf "Installing http proxy...\n"
-/root/expriments/httpproxy-install.sh
-printf "================================\n\n\n"
+# printf "================================\n"
+# printf "Installing http proxy...\n"
+# /root/expriments/httpproxy-install.sh
+# printf "================================\n\n\n"
 
 printf "================================\n"
 printf "Installing shadowsocks...\n"
@@ -41,10 +41,10 @@ printf "Configuring clash subscription...\n"
 /root/expriments/clash-sub.sh
 printf "================================\n\n\n"
 
-printf "================================\n"
-printf "Installing WireGuard...\n"
-/root/expriments/wg-install.sh
-printf "================================\n\n\n"
+# printf "================================\n"
+# printf "Installing WireGuard...\n"
+# /root/expriments/wg-install.sh
+# printf "================================\n\n\n"
 
 printf "================================\n"
 printf "Configuration complete!\n"

@@ -45,9 +45,9 @@ for ((i=0;i<NUM_PEERS;i++)); do
 
     if [[ "$PEER_IP" != "$IP" ]]; then
         wg set wg0 peer "$PEER_KEY" allowed-ips "$PEER_LOCAL/32,$TARGETS_STR"
-        printf "\n\n\n================================"
+        printf "\n\n\n================================\n"
         printf "WireGuard Peer %s\n" "$PEER_IP"
-        printf "================================"
+        printf "================================\n"
         node /root/expriments/wireguard/client/submitv.js
         node /root/expriments/wireguard/client/submitv_b.js
         wg set wg0 peer "$PEER_KEY" allowed-ips "$PEER_LOCAL/32"

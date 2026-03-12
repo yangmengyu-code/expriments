@@ -73,12 +73,14 @@ async function BrowserRequest(url, ip) {
 async function start() {
   let turn = 1;
   while (turn <= Turns) {
+    let count = 1;
     for (const ip of ips) {
       console.log("\n\n\n");
       console.log("================================");
-      console.log("Proxy IP:", ip, "Baseline HTTP Proxy Request Count:", count);
+      console.log("Turn:", turn, "Proxy IP:", ip, "Baseline HTTP Proxy Request Count:", count);
       await BrowserRequest(url, ip);
       console.log("================================");
+      count++;
     }
     turn++;
   }

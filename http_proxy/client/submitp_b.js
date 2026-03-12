@@ -79,7 +79,6 @@ async function start() {
       console.log("Proxy IP:", ip, "Baseline HTTP Proxy Request Count:", count);
       await BrowserRequest(url, ip);
       console.log("================================");
-      count++;
     }
     turn++;
   }

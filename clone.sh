@@ -5,8 +5,8 @@ find . -name "*.sh" -exec chmod +x {} +
 
 /root/expriments/config.sh
 
-# cd
-# cd expriments
-# git fetch --all
-# git reset --hard origin/main
-# find . -name "*.sh" -exec chmod +x {} +
+cd
+cd expriments
+git fetch --all
+git reset --hard origin/main
+find . -name "*.sh" -exec chmod +x {} +

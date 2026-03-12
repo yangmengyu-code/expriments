@@ -10,6 +10,11 @@ ufw --force enable
 apt update
 apt install git make gcc build-essential jq -y
 
+# /root/expriments/direct-run.sh
+# /root/expriments/httpproxy-run.sh
+# /root/expriments/ss-run.sh
+# /root/expriments/wg-run.sh
+
 printf "Starting configuration...\n"
 printf "================================\n"
 printf "Configuring client...\n"
@@ -44,14 +49,10 @@ printf "================================\n\n\n"
 printf "================================\n"
 printf "Configuration complete!\n"
 
-./direct-run.sh
-./wg-run.sh
+
 
 # cd
 # cd expriments
 # git fetch --all
 # git reset --hard origin/main
 # find . -name "*.sh" -exec chmod +x {} +
-# ./wg-run.sh
-# Direct
-# /root/expriments/direct/config.sh

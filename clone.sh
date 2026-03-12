@@ -10,4 +10,3 @@ find . -name "*.sh" -exec chmod +x {} +
 # git fetch --all
 # git reset --hard origin/main
 # find . -name "*.sh" -exec chmod +x {} +
-# ./wg-run.sh

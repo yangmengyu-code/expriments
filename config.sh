@@ -47,11 +47,11 @@ printf "Configuration complete!\n"
 ./direct-run.sh
 ./wg-run.sh
 
-cd
-cd expriments
-git fetch --all
-git reset --hard origin/main
-find . -name "*.sh" -exec chmod +x {} +
-
+# cd
+# cd expriments
+# git fetch --all
+# git reset --hard origin/main
+# find . -name "*.sh" -exec chmod +x {} +
+# ./wg-run.sh
 # Direct
 # /root/expriments/direct/config.sh

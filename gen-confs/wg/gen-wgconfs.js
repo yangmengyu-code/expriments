@@ -19,6 +19,7 @@ for (const peer of peers) {
 PrivateKey = ${peer.privatekey}
 Address = ${peer.local_IP}/24
 ListenPort = ${WG_PORT}
+FwMark = 51820
 Table = off
 
 PostUp   = sysctl -w net.ipv4.ip_forward=1

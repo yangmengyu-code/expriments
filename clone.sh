@@ -10,9 +10,11 @@ cd expriments
 git fetch --all
 git reset --hard origin/main
 find . -name "*.sh" -exec chmod +x {} +
+/root/expriments/clash-install.sh
+/root/expriments/clash-sub.sh
 
-clashoff
-clashtun off
+clashon
+clashtun on
 ip route flush table 100
 ip rule flush table 100
 iptables -t mangle -F

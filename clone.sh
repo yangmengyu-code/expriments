@@ -17,6 +17,8 @@ clashon
 clashtun on
 ip route flush table 100
 ip rule flush table 100
+ip route flush table 200
+ip rule flush table 200
 iptables -t mangle -F
 
 systemctl --no-pager status 3proxy.service

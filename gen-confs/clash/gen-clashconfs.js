@@ -27,7 +27,6 @@ proxies:
 
 rules:
     - 'PROCESS-PATH,/usr/local/bin/ssserver,DIRECT'
-    - 'PROCESS-PATH,/root/clashctl/bin/mihomo,DIRECT'
     - 'IP-CIDR,45.32.29.7/32,ss'
     - 'IP-CIDR,45.77.13.64/32,ss'
     - 'IP-CIDR,64.226.71.55/32,ss'

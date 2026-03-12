@@ -29,7 +29,6 @@ if [[ -z "$SELF_PEER" ]]; then
 fi
 
 # 配置临时路由表 table 100
-ip rule add from 10.0.0.0/24 table main priority 100 || true
 for tgt in "${TARGETS[@]}"; do
     ip rule add to "$tgt" table 100 priority 200 || true
 done
@@ -46,6 +45,9 @@ for ((i=0;i<NUM_PEERS;i++)); do
 
     if [[ "$PEER_IP" != "$IP" ]]; then
         wg set wg0 peer "$PEER_KEY" allowed-ips "$PEER_LOCAL/32,$TARGETS_STR"
+        printf "\n\n\n================================"
+        printf "WireGuard Peer %s\n" "$PEER_IP"
+        printf "================================"
         node /root/expriments/wireguard/client/submitv.js
         node /root/expriments/wireguard/client/submitv_b.js
         wg set wg0 peer "$PEER_KEY" allowed-ips "$PEER_LOCAL/32"
@@ -55,6 +57,5 @@ done
 # 清理路由表和规则
 ip route flush table 100 || true
 ip rule flush table 100 || true
-ip rule del from 10.0.0.0/24 table main priority 100 || true
 
 echo "Done."

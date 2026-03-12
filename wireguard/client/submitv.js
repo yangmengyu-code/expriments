@@ -8,6 +8,7 @@ process.on('unhandledRejection', err => {
   console.log("IGNORED:", err.message);
 });
 const Timeout = 5000;
+const MaxCount = 1;
 async function BrowserRequest(url) {
   const browser = await chromium.launch({
     headless: true,
@@ -62,7 +63,7 @@ async function BrowserRequest(url) {
 
 async function start() {
   let count = 1;
-  while (count <= 1) {
+  while (count <= MaxCount) {
     console.log("\n\n\n");
     console.log("================================");
     console.log("VPN Request Count:", count);

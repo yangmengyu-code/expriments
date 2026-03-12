@@ -34,4 +34,8 @@ for conf in "$CONF_DIR"/wg*.conf; do
     fi
 done
 
+iptables -t mangle -F PREROUTING || true
+iptables -t mangle -A PREROUTING -i wg0 -j MARK --set-mark 51820 || true
+ip rule add fwmark 51820 lookup main priority 20 || true
+
 echo "All WireGuard configs applied."

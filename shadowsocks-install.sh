@@ -17,9 +17,11 @@ systemctl daemon-reload
 systemctl enable shadowsocks-rust.service
 systemctl restart shadowsocks-rust.service
 systemctl --no-pager status shadowsocks-rust.service
-SS_USER=shadowsocks
-SS_UID=$(id -u "$SS_USER")
-echo "Shadowsocks UID: $SS_UID"
-iptables -t mangle -F OUTPUT
-# iptables -t mangle -A OUTPUT -m owner --uid-owner $SS_UID -j MARK --set-mark 1
+# SS_USER=shadowsocks
+# SS_UID=$(id -u "$SS_USER")
+# echo "Shadowsocks UID: $SS_UID"
+# iptables -t mangle -F OUTPUT
+# id -u shadowsocks
+# iptables -t mangle -A OUTPUT -p tcp -m owner --uid-owner shadowsocks -j MARK --set-mark 1
+# iptables -t mangle -A OUTPUT -p udp -m owner --uid-owner shadowsocks -j MARK --set-mark 1
 # ip rule add fwmark 1 lookup main priority 20 || true

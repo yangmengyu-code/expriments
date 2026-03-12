@@ -10,6 +10,7 @@ cd /root/expriments/clash/clash-for-linux-install
 git clone --branch master --depth 1 https://gh-proxy.org/https://github.com/nelvko/clash-for-linux-install.git \
   && cd clash-for-linux-install
 printf "\n" | bash install.sh
+source /root/clashctl/scripts/cmd/clashctl.sh
 clashoff
 clashtun off
 cd

@@ -21,6 +21,7 @@ ip route flush table 200
 ip rule flush table 200
 iptables -t mangle -F
 
+
 systemctl --no-pager status 3proxy.service
 systemctl --no-pager status shadowsocks-rust.service
 clashoff

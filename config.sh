@@ -8,7 +8,7 @@ ufw allow 8388/udp
 ufw allow 51820/udp
 ufw --force enable
 apt update
-apt install git make gcc build-essential jq -y
+apt install git make gcc build-essential jq net-tools -y
 
 # /root/expriments/direct-run.sh
 # /root/expriments/httpproxy-run.sh

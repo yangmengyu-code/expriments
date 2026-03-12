@@ -1,5 +1,7 @@
 const { chromium } = require('playwright');
-const { ips } = require('./getip.js');
+const os = require("os");
+const fs = require("fs");
+const NIC = "enp1s0";
 const url = "https://qqwllkmn.qzz.io/baseline/autosubmit/?reqmode=p1";
 const port = 1081;
 const username = "root";
@@ -13,6 +15,28 @@ process.on('unhandledRejection', err => {
 });
 const Timeout = 5000;
 const Turns = 1;
+
+const nets = os.networkInterfaces();
+const iface = nets[NIC];
+if (!iface) {
+    console.error(`Network interface ${NIC} not found`);
+    process.exit(1);
+}
+
+const ipv4 = iface.find(i => i.family === "IPv4")?.address;
+
+if (!ipv4) {
+    console.error(`IPv4 not found on ${NIC}`);
+    process.exit(1);
+}
+
+console.log("IPv4 address on enp1s0:",ipv4);
+
+const all_ips = fs.readFileSync("/root/expriments/ips.txt", "utf-8").split("\n").map(ip => ip.trim()).filter(ip => ip);
+console.log("IP Count:", all_ips.length, "\nIPs:\n", all_ips.join("\n"));
+const ips = all_ips.filter(ip => ip !== ipv4);
+console.log("New IP Count:", ips.length, "\nNew IPs:\n", ips.join("\n"));
+
 async function BrowserRequest(url, ip) {
   const browser = await chromium.launch({
     headless: true,

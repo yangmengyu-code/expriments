@@ -1,3 +1,3 @@
 cd
-node /root/expriments/httpproxy/client/submitp.js
-node /root/expriments/httpproxy/client/submitp_b.js
+node /root/expriments/http_proxy/client/submitp.js
+node /root/expriments/http_proxy/client/submitp_b.js

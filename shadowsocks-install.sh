@@ -21,5 +21,5 @@ SS_USER=shadowsocks
 SS_UID=$(id -u "$SS_USER")
 echo "Shadowsocks UID: $SS_UID"
 iptables -t mangle -F OUTPUT
-iptables -t mangle -A OUTPUT -m owner --uid-owner $SS_UID -j MARK --set-mark 1
-ip rule add fwmark 1 lookup main priority 20 || true
+# iptables -t mangle -A OUTPUT -m owner --uid-owner $SS_UID -j MARK --set-mark 1
+# ip rule add fwmark 1 lookup main priority 20 || true

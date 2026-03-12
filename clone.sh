@@ -18,7 +18,7 @@ ip rule flush table 100
 
 systemctl --no-pager status 3proxy.service
 systemctl --no-pager status shadowsocks-rust.service
-clashproxy
+clashoff
 clashtun
 clashsub ls
 wg

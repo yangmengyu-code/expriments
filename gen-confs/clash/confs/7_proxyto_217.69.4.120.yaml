@@ -1,0 +1,24 @@
+mixed-port: 7890
+allow-lan: true
+bind-address: "*"
+mode: rule
+log-level: info
+external-controller: "127.0.0.1:9090"
+
+proxies:
+    - {
+          name: "ss",
+          type: ss,
+          server: 217.69.4.120,
+          port: 8388,
+          cipher: chacha20-ietf-poly1305,
+          password: "m123456",
+          udp: true,
+      }
+
+rules:
+    - 'IP-CIDR,45.32.29.7/32,ss'
+    - 'IP-CIDR,45.77.13.64/32,ss'
+    - 'IP-CIDR,64.226.71.55/32,ss'
+    - 'IP-CIDR,137.220.42.146/32,ss'
+    - 'MATCH,DIRECT'

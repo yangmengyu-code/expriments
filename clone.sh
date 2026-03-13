@@ -16,7 +16,7 @@ clashoff
 clashtun off
 
 
-source /root/.bashrc
+
 systemctl --no-pager status 3proxy.service
 systemctl --no-pager status shadowsocks-rust.service
 clashoff

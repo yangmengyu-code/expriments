@@ -4,6 +4,7 @@ git clone https://github.com/yangmengyu-code/expriments.git
 find . -name "*.sh" -exec chmod +x {} +
 
 /root/expriments/config.sh
+source /root/.bashrc
 
 cd
 cd expriments

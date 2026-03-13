@@ -31,11 +31,13 @@ printf "Installing shadowsocks...\n"
 /root/expriments/shadowsocks-install.sh
 printf "================================\n\n\n"
 
+sleep 2
 printf "================================\n"
 printf "Installing clash...\n"
 /root/expriments/clash-install.sh
 printf "================================\n\n\n"
 
+sleep 2
 printf "================================\n"
 printf "Configuring clash subscription...\n"
 /root/expriments/clash-sub.sh

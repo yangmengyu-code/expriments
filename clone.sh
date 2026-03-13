@@ -13,12 +13,10 @@ find . -name "*.sh" -exec chmod +x {} +
 /root/expriments/clash-install.sh
 /root/expriments/clash-sub.sh
 
-clashon
-clashtun on
+clashoff
+clashtun off
 ip route flush table 100
 ip rule flush table 100
-ip route flush table 200
-ip rule flush table 200
 iptables -t mangle -F
 
 

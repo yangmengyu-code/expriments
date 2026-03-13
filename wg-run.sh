@@ -4,7 +4,7 @@ source /root/clashctl/scripts/cmd/clashctl.sh
 clashoff
 clashtun off
 
-TURN=1
+TURN=3
 NIC="enp1s0"
 PEERINFO_FILE="/root/expriments/wireguard/confs/peerinfo.json"
 TARGETS=("45.32.29.7" "45.77.13.64" "64.226.71.55" "137.220.42.146")
@@ -53,7 +53,7 @@ for ((turn=1;turn<=TURN;turn++)); do
         if [[ "$PEER_IP" != "$IP" ]]; then
             wg set wg0 peer "$PEER_KEY" allowed-ips "$PEER_LOCAL/32,$TARGETS_STR"
             printf "\n\n================================\n"
-            printf "Turn %d: WireGuard Peer %s\n, i: %d" "$turn" "$PEER_IP" "$i"
+            printf "Turn %d: WireGuard Peer %s\n, i: %d\n" "$turn" "$PEER_IP" "$i"
             printf "================================\n"
             node /root/expriments/wireguard/client/submitv.js
             node /root/expriments/wireguard/client/submitv_b.js

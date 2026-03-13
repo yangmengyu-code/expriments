@@ -20,6 +20,7 @@ ip route flush cache
 ip route flush table 100
 ip rule flush table 100
 ip rule del fwmark 51820 lookup main priority 20
+ip rule del ipproto icmp table main priority 10
 iptables -t mangle -D PREROUTING -i wg0 -j MARK --set-mark 51820
 node /root/expriments/wireguard/client/submitv.js
 node /root/expriments/wireguard/client/submitv_b.js

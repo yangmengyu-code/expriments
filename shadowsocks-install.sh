@@ -22,8 +22,18 @@ systemctl --no-pager status shadowsocks-rust.service
 # echo "Shadowsocks UID: $SS_UID"
 # iptables -t mangle -F OUTPUT
 # id -u shadowsocks
-# iptables -t mangle -A OUTPUT -m owner --uid-owner shadowsocks -j MARK --set-mark 1
-# ip rule add fwmark 1 lookup 200 priority 10 || true
-# ip route flush table 200 || true
-# ip route add default dev enp1s0 src 136.244.70.245 table 200 || true
-# ip route flush cache
+iptables -t mangle -A OUTPUT -m owner --uid-owner shadowsocks -j MARK --set-mark 1
+iptables -t mangle -A OUTPUT -m owner --uid-owner 999 -j MARK --set-mark 1
+iptables -t mangle -L -n -v
+iptables -t mangle -F
+
+ip rule add to 0.0.0.0/0 lookup 200 priority 10 || true
+ip rule add from 182.168.0.0/30 table 200 priority 10 || true
+ip rule del fwmark 1 lookup 200 priority 10 || true
+ip route flush table 200 || true
+ip route add default dev enp1s0 table 200 || true
+ip route flush cache
+sysctl -w net.ipv4.ip_forward=1
+sysctl -w net.ipv4.conf.all.rp_filter=0
+sysctl -w net.ipv4.conf.default.rp_filter=0
+sysctl -w net.ipv4.conf.enp1s0.rp_filter=0

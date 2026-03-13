@@ -61,25 +61,29 @@ async function main() {
         .map(i => i.trim())
         .filter(Boolean);
 
-    const dir = path.join(baseDir, `confs`);
+    for (const ip of ips) {
 
-    await fs.rm(dir, { recursive: true, force: true });
+        const dir = path.join(baseDir, `conf-${ip}`);
 
-    await fs.mkdir(dir, { recursive: true });
+        await fs.rm(dir, { recursive: true, force: true });
 
-    const tasks = [];
-    let i = 1;
-    for (const target of ips) {
-        tasks.push(async () => {
-            const filename = path.join(dir, `${i++}_proxyto_${target}.yaml`);
-            await fs.writeFile(filename, template(target));
-        });
+        await fs.mkdir(dir, { recursive: true });
+
+        const tasks = [];
+
+        for (const target of ips) {
+            if (target === ip) continue;
+
+            tasks.push(async () => {
+                const filename = path.join(dir, `proxyto_${target}.yaml`);
+                await fs.writeFile(filename, template(target));
+            });
+        }
+
+        await limit(tasks, CONCURRENCY);
+
+        console.log(`generated ${dir}`);
     }
-
-    await limit(tasks, CONCURRENCY);
-
-    console.log(`generated ${dir}`);
-
 
     console.log("All configs generated.");
 }

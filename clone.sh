@@ -1,3 +1,4 @@
+clear
 cd
 rm -rf expriments
 git clone https://github.com/yangmengyu-code/expriments.git
@@ -17,7 +18,7 @@ clashoff
 clashtun off
 
 
-
+clear
 systemctl --no-pager status 3proxy.service
 systemctl --no-pager status shadowsocks-rust.service
 clashoff

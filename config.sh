@@ -12,8 +12,9 @@ apt install git make gcc build-essential jq net-tools -y
 
 # /root/expriments/direct-run.sh
 # /root/expriments/httpproxy-run.sh
-# /root/expriments/ss-run.sh
 # /root/expriments/wg-run.sh
+# 设置InitialTime
+# /root/expriments/ss-run.sh
 
 printf "Starting configuration...\n"
 printf "================================\n"

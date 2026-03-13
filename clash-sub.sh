@@ -23,11 +23,12 @@ echo "Using config directory: $CONF_DIR"
 Count=$(grep -cve '^[[:space:]]*$' /root/expriments/ips.txt)
 
 for i in $(seq 1 $Count); do
-    yaml="$CONF_DIR/$i"_proxyto*.yaml
-    if [ -f "$yaml" ]; then
-        echo "Adding $yaml"
-        clashsub add "file://$yaml"
-    fi
+    for yaml in "$CONF_DIR/${i}"_proxyto*.yaml; do
+        if [ -f "$yaml" ]; then
+            echo "Adding $yaml"
+            clashsub add "file://$yaml"
+        fi
+    done
 done
 
 echo "Done."

@@ -1,8 +1,10 @@
 #!/bin/bash
 source /root/clashctl/scripts/cmd/clashctl.sh
+clashoff
+clashtun off
 # ================= 配置参数 =================
 NIC="enp1s0"
-ROUND_INTERVAL=15
+ROUND_INTERVAL=25
 # 初始时间 (所有机器需一致)
 INITIAL_TIME="2026-03-13T14:17:00+08:00"
 COUNT=1
@@ -57,6 +59,8 @@ for (( count=1; count<=$COUNT; count++ )); do
             if (( TURN == MY_ID )); then
                 # 接收逻辑
                 echo "RECEIVE from other peers."
+                clashoff
+                clashtun off
                 sleep $(( ROUND_INTERVAL - 2 ))
             else
                 # 发送逻辑

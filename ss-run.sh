@@ -4,11 +4,11 @@ clashoff
 clashtun off
 # ================= 配置参数 =================
 NIC="enp1s0"
-ROUND_INTERVAL=25
+ROUND_INTERVAL=30
 # 初始时间 (所有机器需一致)
 INITIAL_TIME="2026-03-13T14:22:00+08:00"
-COUNT=1
-# ================= 1. 加载数据 =================
+COUNT=3
+# ================== 1. 加载数据 =================
 if [ ! -f "/root/expriments/ips.txt" ]; then
     echo "Error: ips.txt not found"
     exit 1

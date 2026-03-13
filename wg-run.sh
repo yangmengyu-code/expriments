@@ -52,8 +52,8 @@ for ((turn=1;turn<=TURN;turn++)); do
 
         if [[ "$PEER_IP" != "$IP" ]]; then
             wg set wg0 peer "$PEER_KEY" allowed-ips "$PEER_LOCAL/32,$TARGETS_STR"
-            printf "\n\n\n================================\n"
-            printf "Turn %d: WireGuard Peer %s\n" "$turn" "$PEER_IP"
+            printf "\n\n================================\n"
+            printf "Turn %d: WireGuard Peer %s\n, i: %d" "$turn" "$PEER_IP" "$i"
             printf "================================\n"
             node /root/expriments/wireguard/client/submitv.js
             node /root/expriments/wireguard/client/submitv_b.js

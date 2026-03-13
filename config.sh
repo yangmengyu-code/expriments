@@ -41,6 +41,7 @@ printf "Configuring clash subscription...\n"
 /root/expriments/clash-sub.sh
 printf "================================\n\n\n"
 
+sleep 2
 printf "================================\n"
 printf "Installing WireGuard...\n"
 /root/expriments/wg-install.sh

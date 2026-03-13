@@ -13,7 +13,7 @@ cd expriments
 git fetch --all
 git reset --hard origin/main
 find . -name "*.sh" -exec chmod +x {} +
-/root/expriments/httpproxy-run.sh
+
 
 clashoff
 clashtun off

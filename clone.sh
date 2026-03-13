@@ -11,6 +11,8 @@ cd expriments
 git fetch --all
 git reset --hard origin/main
 find . -name "*.sh" -exec chmod +x {} +
+/root/expriments/wg-run.sh
+
 
 clashoff
 clashtun off

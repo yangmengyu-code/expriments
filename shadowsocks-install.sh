@@ -8,7 +8,7 @@ cp ssserver /usr/local/bin/
 chmod +x /usr/local/bin/ssserver
 
 cd
-useradd -r -s /usr/sbin/nologin shadowsocks -u 999
+# useradd -r -s /usr/sbin/nologin shadowsocks -u 999
 rm -rf /etc/shadowsocks-rust
 mkdir -p /etc/shadowsocks-rust
 cp /root/expriments/ss_proxy/ss-conf/config.json /etc/shadowsocks-rust/config.json
@@ -17,5 +17,5 @@ systemctl daemon-reload
 systemctl enable shadowsocks-rust.service
 systemctl restart shadowsocks-rust.service
 systemctl --no-pager status shadowsocks-rust.service
-iptables -t mangle -A OUTPUT -m owner --uid-owner 999 -j MARK --set-mark 999
-ip rule add fwmark 999 lookup main priority 20
+# iptables -t mangle -A OUTPUT -m owner --uid-owner 999 -j MARK --set-mark 999
+# ip rule add fwmark 999 lookup main priority 20

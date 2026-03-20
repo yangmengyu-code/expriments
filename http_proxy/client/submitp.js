@@ -13,7 +13,7 @@ process.on('uncaughtException', err => {
 process.on('unhandledRejection', err => {
   console.log("IGNORED:", err.message);
 });
-const Timeout = 8000;
+const Timeout = 10000;
 const Turns = 2;
 
 const nets = os.networkInterfaces();

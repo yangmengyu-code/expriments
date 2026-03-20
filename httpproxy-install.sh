@@ -1,4 +1,5 @@
 cd
+clear
 rm /root/expriments/http_proxy/0.9.5.tar.gz*
 rm -rf /root/expriments/http_proxy/3proxy-0.9.5/
 

@@ -1,4 +1,5 @@
 cd
+clear
 rm -rf /root/expriments/ss_proxy/shadowsocks-rust-1.24.0
 mkdir -p /root/expriments/ss_proxy/shadowsocks-rust-1.24.0
 cd /root/expriments/ss_proxy/shadowsocks-rust-1.24.0

@@ -1,4 +1,5 @@
 cd
+clear
 # apt update
 apt install nodejs npm -y
 npm install playwright

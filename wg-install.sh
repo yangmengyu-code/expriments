@@ -1,3 +1,5 @@
+cd
+clear
 apt install wireguard -y
 
 BASE_DIR="/root/expriments/wireguard/confs"

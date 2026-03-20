@@ -1,5 +1,6 @@
 source /root/clashctl/scripts/cmd/clashctl.sh
 cd
+clear
 clashoff
 clashtun off
 /root/expriments/clash/clash-for-linux-install/clash-for-linux-install/uninstall.sh

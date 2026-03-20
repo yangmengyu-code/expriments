@@ -20,10 +20,12 @@ clashtun off
 
 
 clear
+# npx playwright --version
+# npx playwright install --list
 systemctl --no-pager status 3proxy.service
 systemctl --no-pager status shadowsocks-rust.service
-clashoff
-clashtun
+# clashoff
+# clashtun
 clashsub ls
 wg
 iptables -t mangle -L -n -v

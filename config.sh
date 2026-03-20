@@ -26,11 +26,13 @@ printf "Configuring client...\n"
 /root/expriments/client-config.sh
 printf "================================\n\n\n"
 
+sleep 2
 printf "================================\n"
 printf "Installing http proxy...\n"
 /root/expriments/httpproxy-install.sh
 printf "================================\n\n\n"
 
+sleep 2
 printf "================================\n"
 printf "Installing shadowsocks...\n"
 /root/expriments/shadowsocks-install.sh

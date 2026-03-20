@@ -20,6 +20,7 @@ clashtun off
 
 
 clear
+source /root/.bashrc
 npx playwright --version
 npx playwright install --list
 systemctl --no-pager status 3proxy.service

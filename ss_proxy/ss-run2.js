@@ -83,7 +83,6 @@ async function main() {
                     run(`clashtun on`);
                     run(`clashsub use ${Turn}`);
                     run(`node /root/expriments/ss_proxy/client/submitp.js`);
-                    run(`node /root/expriments/ss_proxy/client/submitp_b.js`);
                     run(`clashoff`);
                     run(`clashtun off`);
                 }

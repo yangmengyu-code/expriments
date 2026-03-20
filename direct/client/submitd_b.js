@@ -1,5 +1,5 @@
 const { chromium } = require('playwright');
-const url = "https://qqwllkmn.qzz.io/baseline/autosubmit/?reqmode=d";
+const url = "https://verygood.us.kg/baseline/autosubmit/?reqmode=d";
 // 全局忽略任何异常避免退出
 process.on('uncaughtException', err => {
   console.log("IGNORED:", err.message);

@@ -8,7 +8,6 @@ for i in $(seq 1 $Count); do
     printf "Using sub %s" "$i"
     printf "================================"
     node /root/expriments/ss_proxy/client/submitp.js
-    node /root/expriments/ss_proxy/client/submitp_b.js
 done
 clashoff
 clashtun off

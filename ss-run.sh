@@ -4,7 +4,7 @@ clashoff
 clashtun off
 # ================= 配置参数 =================
 NIC="enp1s0"
-ROUND_INTERVAL=30
+ROUND_INTERVAL=15
 # 初始时间 (所有机器需一致)
 INITIAL_TIME="2026-03-13T19:55:00+08:00"
 COUNT=2
@@ -72,7 +72,6 @@ for (( count=1; count<=$COUNT; count++ )); do
                 clashtun on
                 clashsub use "$TURN"
                 node /root/expriments/ss_proxy/client/submitp.js
-                node /root/expriments/ss_proxy/client/submitp_b.js
                 clashoff
                 clashtun off
             fi

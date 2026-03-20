@@ -2,7 +2,7 @@ const { chromium } = require('playwright');
 const os = require("os");
 const fs = require("fs");
 const NIC = "enp1s0";
-const url = "https://qqwllkmn.qzz.io/baseline/autosubmit/?reqmode=p1";
+const url = "https://verygood.us.kg/baseline/autosubmit/?reqmode=p1";
 const port = 1081;
 const username = "root";
 const password = "m123456";

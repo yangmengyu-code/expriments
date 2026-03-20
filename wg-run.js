@@ -22,7 +22,7 @@ console.log("IPv4 address on enp1s0:",IP);
 const PEERINFO_FILE = '/root/expriments/wireguard/confs/peerinfo.json';
 const TARGETS = [
     '45.32.29.7',
-    '45.77.13.64',
+    '45.76.199.202',
     '64.226.71.55',
     '137.220.42.146'
 ];
@@ -59,7 +59,6 @@ peers.forEach(peer => {
     if (peer.public_IP !== IP) {
         run(`wg set wg0 peer ${peer.publickey} allowed-ips ${peer.local_IP}/32,${TARGETS_STR}`);
         run(`node /root/expriments/wireguard/client/submitv.js`);
-        run(`node /root/expriments/wireguard/client/submitv_b.js`);
         run(`wg set wg0 peer ${peer.publickey} allowed-ips ${peer.local_IP}/32`);
     }
 });

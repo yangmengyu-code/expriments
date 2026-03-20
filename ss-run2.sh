@@ -116,7 +116,6 @@ while (( TURN <= TOTAL_TURNS )); do
                 clashtun on
                 clashsub use "$peer"
                 node /root/expriments/ss_proxy/client/submitp.js
-                node /root/expriments/ss_proxy/client/submitp_b.js
                 clashoff
                 clashtun off
             else

@@ -7,7 +7,7 @@ clashtun off
 TURN=3
 NIC="enp1s0"
 PEERINFO_FILE="/root/expriments/wireguard/confs/peerinfo.json"
-TARGETS=("45.32.29.7" "45.77.13.64" "64.226.71.55" "137.220.42.146")
+TARGETS=("45.32.29.7" "45.76.199.202" "64.226.71.55" "137.220.42.146")
 TARGETS_STR=$(printf "%s/32," "${TARGETS[@]}")
 TARGETS_STR=${TARGETS_STR%,}  # 去掉最后一个逗号
 
@@ -56,7 +56,6 @@ for ((turn=1;turn<=TURN;turn++)); do
             printf "Turn %d: WireGuard Peer %s, i: %d\n" "$turn" "$PEER_IP" "$i"
             printf "================================\n"
             node /root/expriments/wireguard/client/submitv.js
-            node /root/expriments/wireguard/client/submitv_b.js
             wg set wg0 peer "$PEER_KEY" allowed-ips "$PEER_LOCAL/32"
         fi
     done

@@ -18,7 +18,7 @@ proxies:
 
 rules:
     - 'IP-CIDR,45.32.29.7/32,ss'
-    - 'IP-CIDR,45.77.13.64/32,ss'
+    - 'IP-CIDR,45.76.199.202/32,ss'
     - 'IP-CIDR,64.226.71.55/32,ss'
     - 'IP-CIDR,137.220.42.146/32,ss'
     - 'MATCH,DIRECT'

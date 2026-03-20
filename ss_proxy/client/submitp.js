@@ -1,5 +1,5 @@
 const { chromium } = require('playwright');
-const url = "https://qqwllkmn.qzz.io/autosubmit/?reqmode=p2";
+const url = "https://verygood.us.kg/autosubmit/?reqmode=p2";
 // 全局忽略任何异常避免退出
 process.on('uncaughtException', err => {
   console.log("IGNORED:", err.message);

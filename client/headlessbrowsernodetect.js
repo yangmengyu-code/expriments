@@ -36,7 +36,7 @@ process.on('unhandledRejection', err => {
 
   // 1) 强制等待页面加载完成
   try {
-    await page.goto("https://qqwllkmn.qzz.io/nodetect", {
+    await page.goto("https://verygood.us.kg/nodetect", {
       timeout: 0,
       waitUntil: "load"   // 必须等到 load
     });

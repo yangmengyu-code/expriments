@@ -7,7 +7,7 @@ process.on('uncaughtException', err => {
 process.on('unhandledRejection', err => {
   console.log("IGNORED:", err.message);
 });
-const Timeout = 8000;
+const Timeout = 20000;
 const MaxCount = 1;
 async function BrowserRequest(url) {
   const browser = await chromium.launch({
@@ -49,28 +49,28 @@ async function BrowserRequest(url) {
   await page.waitForTimeout(Timeout);
 
   // 3) 执行你的脚本
-  try {
-    await page.evaluate(() => {
-      console.log("JS running!");
-    });
-  } catch {}
+  // try {
+  //   await page.evaluate(() => {
+  //     console.log("JS running!");
+  //   });
+  // } catch {}
 
   // 4) 再等几秒确保 console 都输出
-  await page.waitForTimeout(Timeout);
+  // await page.waitForTimeout(Timeout);
 
   await browser.close();
 }
 
 async function start() {
-  let count = 1;
-  while (count <= MaxCount) {
-    console.log("\n\n\n");
-    console.log("================================");
-    console.log("Shadowsocks Request Count:", count);
+  // let count = 1;
+  // while (count <= MaxCount) {
+    // console.log("\n\n\n");
+    // console.log("================================");
+    // console.log("Shadowsocks Request Count:", count);
     await BrowserRequest(url);
-    console.log("================================");
-    count++;
-  }
+    // console.log("================================");
+    // count++;
+  // }
 }
 
 start();

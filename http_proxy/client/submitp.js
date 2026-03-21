@@ -13,7 +13,7 @@ process.on('uncaughtException', err => {
 process.on('unhandledRejection', err => {
   console.log("IGNORED:", err.message);
 });
-const Timeout = 8000;
+const Timeout = 20000;
 const Turns = 2;
 
 const nets = os.networkInterfaces();
@@ -82,31 +82,29 @@ async function BrowserRequest(url, ip) {
   await page.waitForTimeout(Timeout);
 
   // 3) 执行你的脚本
-  try {
-    await page.evaluate(() => {
-      console.log("JS running!");
-    });
-  } catch {}
+  // try {
+  //   await page.evaluate(() => {
+  //     console.log("JS running!");
+  //   });
+  // } catch {}
 
   // 4) 再等几秒确保 console 都输出
-  await page.waitForTimeout(Timeout);
+  // await page.waitForTimeout(Timeout);
 
   await browser.close();
 }
 
 async function start() {
-  let turn = 1;
-  while (turn <= Turns) {
-    let count = 1;
+  for (let turn = 0; turn < Turns; turn++) {
+    // let count = 1;
     for (const ip of ips) {
-      console.log("\n\n\n");
-      console.log("================================");
-      console.log("Turn:", turn, "Proxy IP:", ip, "HTTP Proxy Request Count:", count);
+      // console.log("\n\n\n");
+      // console.log("================================");
+      // console.log("Turn:", turn, "Proxy IP:", ip, "HTTP Proxy Request Count:", count);
       await BrowserRequest(url, ip);
-      console.log("================================");
-      count++;
+      // console.log("================================");
+      // count++;
     }
-    turn++;
   }
 }
 

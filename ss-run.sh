@@ -4,7 +4,7 @@ clashoff
 clashtun off
 # ================= 配置参数 =================
 # NIC="enp1s0"
-ROUND_INTERVAL=26
+ROUND_INTERVAL=30
 # 初始时间 (所有机器需一致)
 INITIAL_TIME="2026-03-24T20:05:00+08:00"
 # COUNT=2
@@ -63,9 +63,9 @@ while (( TURN <= N )); do
             echo "RECEIVE from other peers."
             clashoff
             clashtun off
-            # sleep $(( ROUND_INTERVAL - 2 ))
+            sleep $(( ROUND_INTERVAL - 10 ))
         else
-            sleep 1
+            sleep 3
             # 发送逻辑
             TARGET_IP=${IPS[$((TURN - 1))]}
             echo "SEND to Peer: $TARGET_IP, Peer ID: $TURN"
@@ -85,7 +85,7 @@ while (( TURN <= N )); do
     fi
 
     # 每秒检查一次，防止 CPU 空转
-    sleep 0.2
+    sleep 1
 done
 # done
 

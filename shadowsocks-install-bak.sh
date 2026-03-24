@@ -1,0 +1,22 @@
+cd
+clear
+rm -rf /root/expriments/ss_proxy/shadowsocks-rust-1.24.0
+mkdir -p /root/expriments/ss_proxy/shadowsocks-rust-1.24.0
+cd /root/expriments/ss_proxy/shadowsocks-rust-1.24.0
+wget https://github.com/shadowsocks/shadowsocks-rust/releases/download/v1.24.0/shadowsocks-v1.24.0.x86_64-unknown-linux-gnu.tar.xz
+tar -xvf shadowsocks-v1.24.0.x86_64-unknown-linux-gnu.tar.xz
+cp ssserver /usr/local/bin/
+chmod +x /usr/local/bin/ssserver
+
+cd
+# useradd -r -s /usr/sbin/nologin shadowsocks -u 999
+rm -rf /etc/shadowsocks-rust
+mkdir -p /etc/shadowsocks-rust
+cp /root/expriments/ss_proxy/ss-conf/config.json /etc/shadowsocks-rust/config.json
+cp /root/expriments/ss_proxy/ss-conf/shadowsocks-rust.service /etc/systemd/system/shadowsocks-rust.service
+systemctl daemon-reload
+systemctl enable shadowsocks-rust.service
+systemctl restart shadowsocks-rust.service
+systemctl --no-pager status shadowsocks-rust.service
+# iptables -t mangle -A OUTPUT -m owner --uid-owner 999 -j MARK --set-mark 999
+# ip rule add fwmark 999 lookup main priority 20

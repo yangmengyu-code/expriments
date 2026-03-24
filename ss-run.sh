@@ -1,7 +1,7 @@
 #!/bin/bash
 source /root/clashctl/scripts/cmd/clashctl.sh
-clashoff
 clashtun off
+clashoff
 # ================= 配置参数 =================
 # NIC="enp1s0"
 ROUND_INTERVAL=30
@@ -61,8 +61,8 @@ while (( TURN <= N )); do
         if (( TURN == MY_ID )); then
             # 接收逻辑
             echo "RECEIVE from other peers."
-            clashoff
             clashtun off
+            clashoff
             sleep $(( ROUND_INTERVAL - 5 ))
         else
             sleep 3
@@ -71,12 +71,12 @@ while (( TURN <= N )); do
             echo "SEND to Peer: $TARGET_IP, Peer ID: $TURN"
             
             # 执行命令
-            clashon
             clashtun on
+            clashon
             clashsub use "$TURN"
             node /root/expriments/ss_proxy/client/submitp.js
-            clashoff
             clashtun off
+            clashoff
         fi
 
         # 更新下一次开始时间戳，增加 Turn

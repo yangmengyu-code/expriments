@@ -6,7 +6,7 @@ clashtun off
 # NIC="enp1s0"
 ROUND_INTERVAL=26
 # 初始时间 (所有机器需一致)
-INITIAL_TIME="2026-03-21T01:26:00+08:00"
+INITIAL_TIME="2026-03-24T19:05:00+08:00"
 # COUNT=2
 # ================== 1. 加载数据 =================
 if [ ! -f "/root/expriments/ips.txt" ]; then

@@ -65,6 +65,7 @@ while (( TURN <= N )); do
             clashtun off
             # sleep $(( ROUND_INTERVAL - 2 ))
         else
+            sleep 1
             # 发送逻辑
             TARGET_IP=${IPS[$((TURN - 1))]}
             echo "SEND to Peer: $TARGET_IP, Peer ID: $TURN"

@@ -4,7 +4,7 @@ source /root/clashctl/scripts/cmd/clashctl.sh
 clashoff
 clashtun off
 
-TURN=2
+TURN=3
 # NIC="enp1s0"
 PEERINFO_FILE="/root/expriments/wireguard/confs/peerinfo.json"
 TARGETS=("45.32.29.7" "45.76.199.202" "64.226.71.55" "137.220.42.146" "139.84.192.128" "139.84.235.124" "216.238.100.62")

@@ -14,7 +14,7 @@ process.on('unhandledRejection', err => {
   console.log("IGNORED:", err.message);
 });
 const Timeout = 20000;
-const Turns = 2;
+const Turns = 3;
 
 // const nets = os.networkInterfaces();
 // const iface = nets[NIC];

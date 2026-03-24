@@ -3,7 +3,7 @@ source /root/clashctl/scripts/cmd/clashctl.sh
 clashoff
 clashtun off
 # ================= 配置参数 =================
-NIC="enp1s0"
+# NIC="enp1s0"
 ROUND_INTERVAL=26
 # 初始时间 (所有机器需一致)
 INITIAL_TIME="2026-03-21T01:26:00+08:00"
@@ -19,10 +19,11 @@ mapfile -t IPS < <(grep -v '^$' /root/expriments/ips.txt | sed 's/[[:space:]]//g
 N=${#IPS[@]}
 
 # 获取本机 IP
-MY_IP=$(ip -4 addr show "$NIC" | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -n 1)
+# MY_IP=$(ip -4 addr show "$NIC" | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -n 1)
+MY_IP=$(</root/expriments/myip.txt)
 
 if [ -z "$MY_IP" ]; then
-    echo "Network interface $NIC or IPv4 not found"
+    # echo "Network interface $NIC or IPv4 not found"
     exit 1
 fi
 

@@ -3,13 +3,14 @@ clear
 apt install wireguard -y
 
 BASE_DIR="/root/expriments/wireguard/confs"
-NIC="enp1s0"
+# NIC="enp1s0"
 WG_DIR="/etc/wireguard"
 
-IP=$(ip -4 addr show $NIC | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+# IP=$(ip -4 addr show $NIC | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+IP=$(</root/expriments/myip.txt)
 
 if [ -z "$IP" ]; then
-    echo "Failed to get IPv4 address for $NIC"
+    echo "Failed to get IPv4 address"
     exit 1
 fi
 

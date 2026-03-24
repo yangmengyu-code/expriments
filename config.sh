@@ -25,6 +25,7 @@ printf "================================\n"
 printf "Configuring client...\n"
 /root/expriments/client-config.sh
 printf "================================\n\n\n"
+node /root/expriments/saveip.js
 
 sleep 2
 printf "================================\n"

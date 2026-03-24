@@ -29,18 +29,19 @@ function run(cmd) {
     }
 }
 // 获取本机IP
-const NIC = "enp1s0";
-const nets = os.networkInterfaces();
-const iface = nets[NIC];
-if (!iface) {
-    console.error(`Network interface ${NIC} not found`);
-    process.exit(1);
-}
+// const NIC = "enp1s0";
+// const nets = os.networkInterfaces();
+// const iface = nets[NIC];
+// if (!iface) {
+//     console.error(`Network interface ${NIC} not found`);
+//     process.exit(1);
+// }
 
-const IP = iface.find(i => i.family === "IPv4")?.address;
+// const IP = iface.find(i => i.family === "IPv4")?.address;
+const IP = fs.readFileSync("/root/expriments/myip.txt", "utf-8").trim();
 
 if (!IP) {
-    console.error(`IPv4 not found on ${NIC}`);
+    console.error(`IPv4 not found`);
     process.exit(1);
 }
 

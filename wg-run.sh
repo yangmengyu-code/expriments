@@ -5,20 +5,20 @@ clashoff
 clashtun off
 
 TURN=2
-NIC="enp1s0"
+# NIC="enp1s0"
 PEERINFO_FILE="/root/expriments/wireguard/confs/peerinfo.json"
 TARGETS=("45.32.29.7" "45.76.199.202" "64.226.71.55" "137.220.42.146" "139.84.192.128" "139.84.235.124" "216.238.100.62")
 TARGETS_STR=$(printf "%s/32," "${TARGETS[@]}")
 TARGETS_STR=${TARGETS_STR%,}  # 去掉最后一个逗号
 
 # 获取本机 IPv4
-IP=$(ip -4 addr show $NIC | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
-
+# IP=$(ip -4 addr show $NIC | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+IP=$(</root/expriments/myip.txt)
 if [[ -z "$IP" ]]; then
-    echo "IPv4 not found on $NIC"
+    echo "IPv4 not found"
     exit 1
 fi
-echo "IPv4 address on $NIC: $IP"
+echo "IPv4 address: $IP"
 
 # 读取 peerinfo.json 查找本机 peer
 if ! command -v jq &> /dev/null; then

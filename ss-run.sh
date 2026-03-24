@@ -2,6 +2,8 @@
 source /root/clashctl/scripts/cmd/clashctl.sh
 clashtun off
 clashoff
+clashtun off
+clashoff
 # ================= 配置参数 =================
 # NIC="enp1s0"
 ROUND_INTERVAL=60
@@ -63,6 +65,8 @@ while (( TURN <= N )); do
             echo "RECEIVE from other peers."
             clashtun off
             clashoff
+            clashtun off
+            clashoff
             sleep $(( ROUND_INTERVAL - 5 ))
         else
             sleep 3
@@ -73,8 +77,13 @@ while (( TURN <= N )); do
             # 执行命令
             clashtun on
             clashon
+            clashtun on
+            clashon
+            clashsub use "$TURN"
             clashsub use "$TURN"
             node /root/expriments/ss_proxy/client/submitp.js
+            clashtun off
+            clashoff
             clashtun off
             clashoff
         fi

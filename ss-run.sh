@@ -6,7 +6,7 @@ clashtun off
 # NIC="enp1s0"
 ROUND_INTERVAL=26
 # 初始时间 (所有机器需一致)
-INITIAL_TIME="2026-03-24T19:20:00+08:00"
+INITIAL_TIME="2026-03-24T19:37:00+08:00"
 # COUNT=2
 # ================== 1. 加载数据 =================
 if [ ! -f "/root/expriments/ips.txt" ]; then
@@ -63,7 +63,7 @@ while (( TURN <= N )); do
             echo "RECEIVE from other peers."
             clashoff
             clashtun off
-            sleep $(( ROUND_INTERVAL - 2 ))
+            # sleep $(( ROUND_INTERVAL - 2 ))
         else
             # 发送逻辑
             TARGET_IP=${IPS[$((TURN - 1))]}
@@ -84,7 +84,7 @@ while (( TURN <= N )); do
     fi
 
     # 每秒检查一次，防止 CPU 空转
-    sleep 1
+    sleep 0.2
 done
 # done
 

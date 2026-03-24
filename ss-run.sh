@@ -6,7 +6,7 @@ clashtun off
 clashoff
 # ================= 配置参数 =================
 # NIC="enp1s0"
-ROUND_INTERVAL=60
+ROUND_INTERVAL=50
 # 初始时间 (所有机器需一致)
 INITIAL_TIME="2026-03-24T23:35:00+08:00"
 # COUNT=2

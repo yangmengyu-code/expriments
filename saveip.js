@@ -12,7 +12,7 @@ async function saveIP() {
         const ip = await response.text();
 
         // 2. 将结果写入 myip.txt (若文件不存在会自动创建)
-        fs.writeFileSync('./myip.txt', ip.trim());
+        fs.writeFileSync('/root/expriments/myip.txt', ip.trim());
         
         console.log(`成功！IP ${ip.trim()} 已保存到 myip.txt`);
     } catch (error) {

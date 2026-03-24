@@ -1,6 +1,6 @@
 cd
 clear
-apt install shadowsocks-libev
+apt install shadowsocks-libev -y
 cp /root/expriments/ss_proxy/ss-conf/config.json /etc/shadowsocks-libev/config.json
 systemctl restart shadowsocks-libev
 systemctl enable shadowsocks-libev

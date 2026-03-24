@@ -6,7 +6,7 @@ clashtun off
 # NIC="enp1s0"
 ROUND_INTERVAL=30
 # 初始时间 (所有机器需一致)
-INITIAL_TIME="2026-03-24T20:18:00+08:00"
+INITIAL_TIME="2026-03-24T22:28:00+08:00"
 # COUNT=2
 # ================== 1. 加载数据 =================
 if [ ! -f "/root/expriments/ips.txt" ]; then
@@ -63,44 +63,7 @@ while (( TURN <= N )); do
             echo "RECEIVE from other peers."
             clashoff
             clashtun off
-            sleep $(( ROUND_INTERVAL - 10 ))
-        else
-            sleep 3
-            # 发送逻辑
-            TARGET_IP=${IPS[$((TURN - 1))]}
-            echo "SEND to Peer: $TARGET_IP, Peer ID: $TURN"
-            
-            # 执行命令
-            clashon
-            clashtun on
-            clashsub use "$TURN"
-            node /root/expriments/ss_proxy/client/submitp.js
-            clashoff
-            clashtun off
-        fi
-
-        # 更新下一次开始时间戳，增加 Turn
-        LAST_START_TIME=$(( LAST_START_TIME + ROUND_INTERVAL ))
-        (( TURN++ ))
-    fi
-
-    # 每秒检查一次，防止 CPU 空转
-    sleep 1
-done
-
-TURN=1
-while (( TURN <= N )); do
-    NOW=$(date +%s)
-
-    if (( NOW >= LAST_START_TIME )); then
-        # echo -e "\n============= Turn $COUNT ============="
-
-        if (( TURN == MY_ID )); then
-            # 接收逻辑
-            echo "RECEIVE from other peers."
-            clashoff
-            clashtun off
-            sleep $(( ROUND_INTERVAL - 10 ))
+            sleep $(( ROUND_INTERVAL - 5 ))
         else
             sleep 3
             # 发送逻辑

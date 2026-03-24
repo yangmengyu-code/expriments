@@ -21,6 +21,9 @@ clashtun off
 
 clear
 source /root/.bashrc
+ifconfig
+cat /root/expriments/myip.txt
+ufw status
 npx playwright --version
 npx playwright install --list
 systemctl --no-pager status 3proxy.service

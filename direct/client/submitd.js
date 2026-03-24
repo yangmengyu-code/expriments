@@ -8,7 +8,7 @@ process.on('unhandledRejection', err => {
   console.log("IGNORED:", err.message);
 });
 const Timeout = 15000;
-const MaxCount = 20;
+const MaxCount = 5;
 async function BrowserRequest(url) {
   const browser = await chromium.launch({
     headless: true,

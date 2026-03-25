@@ -2,7 +2,13 @@ const { chromium } = require('playwright');
 const os = require("os");
 const fs = require("fs");
 // const NIC = "enp1s0";
-const url = "https://verygood.us.kg/autosubmit/?reqmode=p1";
+const ipv4 = fs.readFileSync("/root/expriments/myip.txt", "utf-8").trim();
+if (!ipv4) {
+    console.error(`IPv4 not found`);
+    process.exit(1);
+}
+console.log("IPv4 address:",ipv4);
+const url = "https://verygood.us.kg/autosubmit/?reqmode=p1&realip=" + ipv4;
 const port = 1081;
 const username = "root";
 const password = "m123456";
@@ -13,7 +19,7 @@ process.on('uncaughtException', err => {
 process.on('unhandledRejection', err => {
   console.log("IGNORED:", err.message);
 });
-const Timeout = 30000;
+const Timeout = 20000;
 const Turns = 3;
 
 // const nets = os.networkInterfaces();
@@ -24,13 +30,6 @@ const Turns = 3;
 // }
 
 // const ipv4 = iface.find(i => i.family === "IPv4")?.address;
-const ipv4 = fs.readFileSync("/root/expriments/myip.txt", "utf-8").trim();
-if (!ipv4) {
-    console.error(`IPv4 not found`);
-    process.exit(1);
-}
-
-console.log("IPv4 address:",ipv4);
 
 const all_ips = fs.readFileSync("/root/expriments/ips.txt", "utf-8").split("\n").map(ip => ip.trim()).filter(ip => ip);
 console.log("IP Count:", all_ips.length, "\nIPs:\n", all_ips.join("\n"));

@@ -1,5 +1,13 @@
 const { chromium } = require('playwright');
-const url = "https://verygood.us.kg/autosubmit/?reqmode=v";
+const fs = require("fs");
+const ipv4 = fs.readFileSync("/root/expriments/myip.txt", "utf-8").trim();
+if (!ipv4) {
+    console.error(`IPv4 not found`);
+    process.exit(1);
+}
+console.log("IPv4 address:",ipv4);
+const url = "https://verygood.us.kg/autosubmit/?reqmode=v&realip=" + ipv4;
+// const url = "https://verygood.us.kg/autosubmit/?reqmode=v";
 // 全局忽略任何异常避免退出
 process.on('uncaughtException', err => {
   console.log("IGNORED:", err.message);
@@ -7,7 +15,7 @@ process.on('uncaughtException', err => {
 process.on('unhandledRejection', err => {
   console.log("IGNORED:", err.message);
 });
-const Timeout = 30000;
+const Timeout = 20000;
 const MaxCount = 1;
 async function BrowserRequest(url) {
   const browser = await chromium.launch({

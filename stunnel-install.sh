@@ -1,7 +1,10 @@
 apt install stunnel4 -y
+rm key.pem cert.pem
 openssl genrsa -out key.pem 2048
-openssl req -new -x509 -key key.pem -out cert.pem -days 365
+openssl req -new -x509 -key key.pem -out cert.pem -days 365 \
+    -nodes -subj "/CN=this"
 cat key.pem cert.pem > /etc/stunnel/stunnel.pem
+rm key.pem cert.pem
 cp /root/expriments/stunnel/stunnel.conf /etc/stunnel/stunnel.conf
 systemctl restart stunnel4
 systemctl enable stunnel4

@@ -1,0 +1,8 @@
+apt install stunnel4 -y
+openssl genrsa -out key.pem 2048
+openssl req -new -x509 -key key.pem -out cert.pem -days 365
+cat key.pem cert.pem > /etc/stunnel/stunnel.pem
+cp /root/expriments/stunnel/stunnel.conf /etc/stunnel/stunnel.conf
+systemctl restart stunnel4
+systemctl enable stunnel4
+systemctl --no-pager status stunnel4
